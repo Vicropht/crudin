@@ -7,6 +7,6 @@ app.listen(3000, function() {
 })
 
 app.get('/', (req,res) => {
-	res.send('Hello, World')
+	res.sendFile(__dirname + '/index.html')
 })
 

@@ -1,4 +1,3 @@
-console.log('May node be with you')
 const client = require('mongodb').MongoClient
 const url = "mongodb+srv://dbUser:dbUser@cluster0-4b6gs.mongodb.net/test?retryWrites=true&w=majority"
 const express = require('express')
@@ -20,17 +19,16 @@ client.connect(url, { useUnifiedTopology: true })
 			/*const cursor = db.collection('quotes').find()
 			console.log(cursor)
 			res.sendFile(__dirname + '/index.html')*/
-			db.collection('quotes').find().toArray()
-    		.then(results => {
-				  res.render('index.ejs', { quotes: results })
+			db.collection('quotes').find().toArray().then(results => {
+				res.render('index.ejs', { quotes: results })
 			})
 		})
 		app.post('/quotes', (req, res) => {
-			quotesCollection.insertOne(req.body)
-			.then(result => {
+			quotesCollection.insertOne(req.body).then(result => {
 				res.redirect('/')
-			})
-			.catch(error => console.error(error))
+			}).catch(error => console.error(error))
 		})
-})
-.catch( error => console.error(error))
+		app.put('/quotes', (req, res) => {
+			console.log(req.body)
+		})
+}).catch( error => console.error(error))

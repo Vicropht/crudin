@@ -1,9 +1,13 @@
-const update = document.querySelector('#update-button')
+const update = document.querySelector('#nuke')
 
 update.addEventListener('click', _ => {
     fetch('/quotes', {
         method: 'put',
         /* Since we are  */
         header: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: 'Duke Nukem',
+            quote: "It's time to kick ass and chew bubble gum, and I'm all outta gum!"
+        })
     })
 })

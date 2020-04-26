@@ -12,13 +12,12 @@ client.connect(url, { useUnifiedTopology: true })
 		app.set('view engine', 'ejs')
 		app.use(express.static('public'))
 		app.use(bParser.urlencoded({ extended: true }))
+		app.use(bParser.json())
 		app.listen(3000, function() {
 			console.log('listening on 3000')
 		})
+		
 		app.get('/', (req, res) => {
-			/*const cursor = db.collection('quotes').find()
-			console.log(cursor)
-			res.sendFile(__dirname + '/index.html')*/
 			db.collection('quotes').find().toArray().then(results => {
 				res.render('index.ejs', { quotes: results })
 			})

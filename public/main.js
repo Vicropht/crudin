@@ -3,7 +3,6 @@ const update = document.querySelector('#nuke')
 update.addEventListener('click', _ => {
     fetch('/quotes', {
         method: 'put',
-        /* Since we are  */
         header: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             name: 'Duke Nukem',

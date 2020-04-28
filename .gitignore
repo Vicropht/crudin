@@ -3,4 +3,3 @@ node_modules/
 .jshintrc
 
 package-lock.json
-package.json

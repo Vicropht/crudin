@@ -1,5 +1,5 @@
 const client = require('mongodb').MongoClient
-const url = "mongodb+srv://dbUser:dbUser@cluster0-4b6gs.mongodb.net/test?retryWrites=true&w=majority"
+const url = "mongodb+srv://dbUser:dbUser@quotes-4b6gs.mongodb.net/test?retryWrites=true&w=majority"
 const express = require('express')
 const bParser = require('body-parser')
 const app = express()
@@ -28,6 +28,6 @@ client.connect(url, { useUnifiedTopology: true })
 			}).catch(error => console.error(error))
 		})
 		app.put('/quotes', (req, res) => {
-			console.log(req.body)
+			console.log(req)
 		})
 }).catch( error => console.error(error))
